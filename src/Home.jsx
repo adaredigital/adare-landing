@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100 text-gray-900 px-6 py-12 md:px-20 dark:bg-gray-900 dark:text-white">
+    <main className="text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-900 min-h-screen px-6 py-12 md:px-20">
       {/* Hero Section */}
       <section className="text-left mb-20 py-12 border border-gray-200 bg-white px-8 rounded-xl shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className="max-w-4xl mx-auto">
@@ -12,9 +12,12 @@ export default function Home() {
           <p className="text-lg md:text-xl mb-6 text-gray-700 dark:text-gray-300">
             Helping public sector teams go digital — securely, affordably, and fast.
           </p>
-          <a href="#contact" className="inline-block text-lg px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-600 rounded">
+          <button
+            className="text-lg px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-600"
+            onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+          >
             Get a Quote
-          </a>
+          </button>
         </div>
       </section>
 
@@ -52,12 +55,41 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="max-w-2xl mx-auto text-center bg-emerald-50 p-6 rounded-xl shadow dark:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4 text-emerald-800 dark:text-emerald-300">Get in Touch</h2>
-        <p className="mb-4">Email us at <a href="mailto:info@adaredigital.co.uk" className="text-emerald-600 underline dark:text-emerald-400">info@adaredigital.co.uk</a></p>
-        <form className="grid gap-4">
-          <input type="text" placeholder="Your Name" className="border border-gray-300 p-3 rounded dark:bg-gray-900 dark:border-gray-600 dark:text-white" />
-          <input type="email" placeholder="Your Email" className="border border-gray-300 p-3 rounded dark:bg-gray-900 dark:border-gray-600 dark:text-white" />
-          <textarea placeholder="Your Message" rows={4} className="border border-gray-300 p-3 rounded dark:bg-gray-900 dark:border-gray-600 dark:text-white" />
-          <button type="submit" className="text-lg px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-600 rounded">Send Message</button>
+        <p className="mb-4">
+          Email us at <a href="mailto:info@adaredigital.co.uk" className="text-emerald-600 underline dark:text-emerald-400">info@adaredigital.co.uk</a>
+        </p>
+        <form
+          action="https://formspree.io/f/xjkyjjdq"
+          method="POST"
+          className="grid gap-4"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="border border-gray-300 p-3 rounded dark:bg-gray-900 dark:border-gray-600 dark:text-white"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="border border-gray-300 p-3 rounded dark:bg-gray-900 dark:border-gray-600 dark:text-white"
+          />
+          <textarea
+            name="message"
+            rows={4}
+            placeholder="Your Message"
+            required
+            className="border border-gray-300 p-3 rounded dark:bg-gray-900 dark:border-gray-600 dark:text-white"
+          />
+          <button
+            type="submit"
+            className="text-lg px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-600"
+          >
+            Send Message
+          </button>
         </form>
       </section>
     </main>
